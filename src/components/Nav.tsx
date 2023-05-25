@@ -1,7 +1,26 @@
-import { Box, Button, Flex, Link, Text } from '@chakra-ui/react';
+import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
+import {
+  Box,
+  Button,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  Flex,
+  IconButton,
+  Input,
+  Link,
+  Text,
+} from '@chakra-ui/react';
 import React from 'react';
 
 const Nav = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const btnRef = React.useRef(null);
+  const onClose = () => setIsOpen(false);
   return (
     <Flex bg="gray.50" p={2} align="center">
       <Box flex={1}>
@@ -22,10 +41,7 @@ const Nav = () => {
           </Link>
         </Text>
       </Box>
-      <Box>
-        <Button as={Link} href="/" variant="link" mx={2}>
-          Home
-        </Button>
+      <Box className="hidden md:block">
         <Button as={Link} href="/about" variant="link" mx={2}>
           About
         </Button>
@@ -33,6 +49,31 @@ const Nav = () => {
           Contact
         </Button>
       </Box>
+
+      <div className="float-right md:hidden">
+        <IconButton
+          ref={btnRef}
+          colorScheme="teal"
+          onClick={() => setIsOpen(true)}
+          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+          variant="ghost"
+          aria-label="Toggle Menu"
+        ></IconButton>
+      </div>
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose} finalFocusRef={btnRef}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>Menu</DrawerHeader>
+
+          <DrawerBody>
+            <div className="flex flex-col gap-2 text-left">
+              <Link href="/about">About</Link>
+              <Link href="/contact">Contact</Link>
+            </div>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
     </Flex>
   );
 };
