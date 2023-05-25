@@ -4,8 +4,10 @@ Show case tiger hall contents
 
 ## Installation
 
-Requires yarn. Clone the repo and run `yarn install`
+Requires yarn. Clone the repo and run `npm install`
 
 ## Start
 
-After the successfull installation of the packages: `yarn dev`
+After the successfull installation of the packages: `npm run dev`.
+
+Open new browser and visit `http://localhost:3005/`
