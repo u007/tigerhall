@@ -10,7 +10,7 @@ const DefaultLayout = () => {
         <Nav />
       </header>
 
-      <main>
+      <main className="min-h-screen">
         <Outlet />
       </main>
 

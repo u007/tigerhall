@@ -4,7 +4,7 @@ function NoMatch404() {
   return (
     <Center>
       <h2>Ops</h2>
-      <p className="p-4 min-h-50">Page not found...</p>
+      <p className="p-4 ">Page not found...</p>
       <p>
         <Link href="/">Go to the home page</Link>
       </p>
