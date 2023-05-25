@@ -17,7 +17,7 @@ const DefaultLayout = () => {
       {/* Footer */}
       <footer>
         <p className="text-center">
-          &copy; {new Date().getFullYear()} Tiger hall Pte Ltd. All rights reserved.
+          &copy; {new Date().getFullYear()} Tigerhall. All rights reserved.
         </p>
       </footer>
     </div>
