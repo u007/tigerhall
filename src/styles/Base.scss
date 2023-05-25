@@ -1,0 +1,51 @@
+@import './Fonts.scss';
+
+:root {
+  --tiger-orang-600: #FF5900;
+  --so-sunny-600: #F78104;
+  --kinda-yellow-600: #FAAB36;
+  --teal-600: #005F60;
+  --gray-200: #F5F3EE;
+}
+
+.body {
+  @extend .xs-montreal-header-medium;
+}
+
+.md-montreal-header-bold {
+  font-family: NeueMontreal-Bold;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: 0.015em;
+  text-align: left;
+}
+
+.xs-montreal-header-medium {
+  font-family: NeueMontreal-Medium;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0.015em;
+  text-align: left;
+}
+
+.xs-montreal-header-medium {
+  font-family: NeueMontreal-Medium;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0.015em;
+  text-align: left;
+}
+/* font-weight: 700; */
+
+.text-primary {
+  color: var(--primary);
+  @extend .xs-montreal-header-medium;
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
