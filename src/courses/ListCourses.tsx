@@ -1,12 +1,43 @@
-import React from 'react'
-import { Box, Heading, Text, Link, VStack } from '@chakra-ui/react'
+import {
+  Box,
+  Heading,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement,
+  Link,
+  Stack,
+  Text,
+  VStack,
+} from '@chakra-ui/react';
+import React, { useState } from 'react';
 
-const CardList = ({ results }) => {
+import Search from './Search';
+
+type Props = {
+  results: {
+    title: string;
+    description: string;
+    link: string;
+  }[];
+};
+
+const ListCourses = () => {
+  const [results, setResults] = useState<Props['results']>([]);
+  const [search, setSearch] = useState('');
+
   return (
     <Box>
-      <Heading as="h1" size="xl">
+      {/* <Heading as="h1" size="xl">
         Courses
-      </Heading>
+      </Heading> */}
+      <Search
+        value={search}
+        onChange={(e) => {
+          console.log('e', e);
+        }}
+      />
+
       <VStack spacing={4} align="stretch" mt={4}>
         {results.map((result, index) => (
           <Box key={index} borderWidth="1px" borderRadius="md" p={4}>
@@ -23,3 +54,5 @@ const CardList = ({ results }) => {
     </Box>
   );
 };
+
+export default ListCourses;

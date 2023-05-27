@@ -8,10 +8,6 @@
   --gray-200: #F5F3EE;
 }
 
-.body {
-  @extend .xs-montreal-header-medium;
-}
-
 .md-montreal-header-bold {
   font-family: NeueMontreal-Bold;
   font-size: 16px;
@@ -40,6 +36,10 @@
 }
 /* font-weight: 700; */
 
+body {
+  @apply bg-black;
+}
+
 .text-primary {
   color: var(--primary);
   @extend .xs-montreal-header-medium;
@@ -48,4 +48,3 @@
 .text-secondary {
   color: var(--secondary);
 }
-

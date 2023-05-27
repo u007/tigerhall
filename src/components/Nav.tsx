@@ -22,7 +22,7 @@ const Nav = () => {
   const btnRef = React.useRef(null);
   const onClose = () => setIsOpen(false);
   return (
-    <Flex bg="gray.50" p={2} align="center">
+    <Flex bg="white" p={2} align="center">
       <Box flex={1}>
         <Text fontSize="xl" fontWeight="bold">
           <Link href="/">
