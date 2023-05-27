@@ -1,22 +1,18 @@
 import {
   Box,
-  Button,
   ButtonGroup,
   Card,
   CardBody,
   CardFooter,
-  Divider,
   Heading,
-  Icon,
   IconButton,
-  Image,
   Stack,
-  Tag,
   Text,
 } from '@chakra-ui/react';
 import BookmarkIcon from 'components/icons/BookmarkIcon';
 import HeadsetIcon from 'components/icons/HeadsetIcon';
 import ShareIcon from 'components/icons/ShareIcon';
+import PodtcastProgressIndicator from 'components/PodcastProgressIndicator';
 import Progress from 'components/Progress';
 import { useState } from 'react';
 
@@ -24,7 +20,7 @@ import { PodcastType } from './PodcastType';
 
 const Course = ({ name, experts, categories }: PodcastType) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(40);
+  const [progress, setProgress] = useState(30);
   return (
     <Card maxW="sm" borderRadius="8px">
       <Box
@@ -35,6 +31,8 @@ const Course = ({ name, experts, categories }: PodcastType) => {
         bgImage="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
         backgroundSize="cover"
       >
+        {/* <CircularProgress size="12px" value={progress} ml={2} thickness="80%" rounded="full" /> */}
+        <PodtcastProgressIndicator progress={progress} />
         <IconButton
           rounded={'full'}
           colorScheme="orange"
@@ -80,6 +78,10 @@ const Course = ({ name, experts, categories }: PodcastType) => {
             variant="ghost"
             aria-label="share"
             size="sm"
+            w={18}
+            border="0"
+            p="0"
+            rounded="full"
           ></IconButton>
 
           <IconButton
@@ -89,6 +91,9 @@ const Course = ({ name, experts, categories }: PodcastType) => {
             variant="ghost"
             aria-label="bookmark"
             size="sm"
+            border="0"
+            p="0"
+            rounded="full"
           ></IconButton>
         </ButtonGroup>
       </CardFooter>

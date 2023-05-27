@@ -1,15 +1,6 @@
-import {
-  Box,
-  Heading,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  InputRightElement,
-  Link,
-  Stack,
-  Text,
-  VStack,
-} from '@chakra-ui/react';
+import 'react-circular-progressbar/dist/styles.css';
+
+import { Box, Stack } from '@chakra-ui/react';
 import React, { useState } from 'react';
 
 import { podcasts } from '../datas/courses';
