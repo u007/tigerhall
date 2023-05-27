@@ -25,7 +25,12 @@ const Search = ({ value, onChange }: Props) => {
   return (
     <Stack spacing={4}>
       <InputGroup colorScheme="white">
-        <Input value={value} onChange={onChange} />
+        <Input
+          value={value}
+          onChange={onChange}
+          borderColor="#797670"
+          bgColor="#383733"
+        />
         <InputLeftElement>
           <Button colorScheme="white">
             <SearchIcon />
