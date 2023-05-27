@@ -2,9 +2,9 @@ import { PodcastType } from '../podcasts/PodcastType';
 
 export const podcasts: PodcastType[] = [
   {
-    name: 'test',
+    name: 'test title',
     categories: {
-      name: 'abc',
+      name: 'Communicating as a leader',
     },
     experts: {
       company: 'Microsoft',
