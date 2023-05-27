@@ -5,6 +5,7 @@ const theme = extendTheme({
     heading: `NeueMontreal-Bold, sans-serif`,
     body: `NeueMontreal-Medium, sans-serif`,
   },
+  colors: {},
 });
 
 export default theme;

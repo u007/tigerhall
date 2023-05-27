@@ -14,8 +14,8 @@ import {
   Tag,
   Text,
 } from '@chakra-ui/react';
-import BookmarkIcon from 'assets/icons/bookmark.svg';
-import ShareIcon from 'assets/icons/share.svg';
+import BookmarkIcon from 'components/icons/BookmarkIcon';
+import ShareIcon from 'components/icons/ShareIcon';
 
 import { PodcastType } from './PodcastType';
 
@@ -45,21 +45,23 @@ const Course = ({ name, experts, categories }: PodcastType) => {
           </Text>
         </Stack>
       </CardBody>
-      <CardFooter>
-        <ButtonGroup spacing="2">
-          <Button variant="solid" colorScheme="blue">
-            Share
-          </Button>
+      <CardFooter p="0 0 5px 0">
+        <ButtonGroup spacing="0" ml="auto">
           <IconButton
-            colorScheme="teal"
+            colorScheme="orange"
             onClick={() => console.log('TODO')}
-            icon={<Icon as={ShareIcon} />}
+            icon={<ShareIcon />}
             variant="ghost"
             aria-label="share"
           ></IconButton>
-          <Button variant="ghost" colorScheme="blue">
-            Bookmark
-          </Button>
+
+          <IconButton
+            colorScheme="orange"
+            onClick={() => console.log('TODO')}
+            icon={<BookmarkIcon />}
+            variant="ghost"
+            aria-label="bookmark"
+          ></IconButton>
         </ButtonGroup>
       </CardFooter>
     </Card>
