@@ -15,12 +15,16 @@ import {
   Text,
 } from '@chakra-ui/react';
 import BookmarkIcon from 'components/icons/BookmarkIcon';
+import HeadsetIcon from 'components/icons/HeadsetIcon';
 import ShareIcon from 'components/icons/ShareIcon';
+import Progress from 'components/Progress';
+import { useState } from 'react';
 
-import HeadsetIcon from '../components/icons/HeadsetIcon';
 import { PodcastType } from './PodcastType';
 
 const Course = ({ name, experts, categories }: PodcastType) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(40);
   return (
     <Card maxW="sm" borderRadius="8px">
       <Box
@@ -43,6 +47,7 @@ const Course = ({ name, experts, categories }: PodcastType) => {
           _hover={{ bgColor: 'rgba(255, 89, 0, 0.6)' }}
           className="!absolute bottom-0 left-0 ml-2 mb-2"
         ></IconButton>
+        <Progress progress={progress} className="absolute bottom-0 left-0" />
       </Box>
       <CardBody p="8px 8px 12px">
         <Stack mt="0" gap={0}>
@@ -52,7 +57,7 @@ const Course = ({ name, experts, categories }: PodcastType) => {
           <Heading fontSize="md" className="!mt-0 capitalize">
             {name}
           </Heading>
-          <Text fontSize="sm" mt={2} color="#4D4B46">
+          <Text fontSize="xs" mt={2} color="#4D4B46">
             {experts.firstName} {experts.lastName}
           </Text>
           <Text
