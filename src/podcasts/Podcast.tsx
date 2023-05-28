@@ -23,7 +23,7 @@ import { PodcastType } from './PodcastType';
 
 const Course = ({ name, experts, categories, duration }: PodcastType) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(30);
+  const [progress, setProgress] = useState(Math.floor(Math.random() * 100));
 
   return (
     <Card maxW="sm" borderRadius="8px">
