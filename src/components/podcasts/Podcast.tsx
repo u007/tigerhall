@@ -22,7 +22,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import { PodcastType } from './PodcastType';
 
-const Course = ({ name, experts, categories, duration }: PodcastType) => {
+const Course = ({ name, experts, categories, duration, image }: PodcastType) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(Math.floor(Math.random() * 100));
   const currentTime = useRef<number>(Math.round((progress * duration) / 100) * 1000); // ms
@@ -64,6 +64,13 @@ const Course = ({ name, experts, categories, duration }: PodcastType) => {
   };
 
   const expert = experts?.[0] || {};
+  const currentHost = window.location.protocol + '//' + window.location.host;
+
+  const imgUrl = new URL(image?.uri || currentHost + '/public/img/no-image.png');
+  if (image?.uri) {
+    imgUrl.pathname = '/resize/250x' + imgUrl.pathname;
+  }
+  // console.log(imgUrl.href);
 
   return (
     <Card maxW="sm" borderRadius="8px" height="272px" className="mx-auto" width="244px">
@@ -74,7 +81,8 @@ const Course = ({ name, experts, categories, duration }: PodcastType) => {
             borderRadius="8px 8px 0 0"
             w="full"
             h="120px"
-            bgImage="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+            bgImage={imgUrl.href}
+            // bgImage="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
             backgroundSize="cover"
           >
             {/* <CircularProgress size="12px" value={progress} ml={2} thickness="80%" rounded="full" /> */}
@@ -158,6 +166,6 @@ const Course = ({ name, experts, categories, duration }: PodcastType) => {
       </Fade>
     </Card>
   );
-};
+};;
 
 export default Course;
