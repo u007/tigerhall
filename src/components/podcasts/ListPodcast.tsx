@@ -6,7 +6,6 @@ import {
   AlertIcon,
   Box,
   Card,
-  Fade,
   Skeleton,
   SkeletonText,
   Stack,

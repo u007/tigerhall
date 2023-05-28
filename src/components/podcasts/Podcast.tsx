@@ -18,13 +18,50 @@ import HeadsetIcon from 'components/icons/HeadsetIcon';
 import ShareIcon from 'components/icons/ShareIcon';
 import PodtcastProgressIndicator from 'components/PodcastProgressIndicator';
 import Progress from 'components/Progress';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { PodcastType } from './PodcastType';
 
 const Course = ({ name, experts, categories, duration }: PodcastType) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(Math.floor(Math.random() * 100));
+  const currentTime = useRef<number>(Math.round((progress * duration) / 100) * 1000); // ms
+
+  let runningPodcast: NodeJS.Timer;
+  useEffect(() => {
+    if (!isPlaying) {
+      clearInterval(runningPodcast);
+      return;
+    }
+    runningPodcast = setInterval(() => {
+      console.log('playing', name, {
+        currentTime: currentTime.current,
+        duration: duration * 1000,
+      });
+      if (isPlaying) {
+        const newTime = currentTime.current + 500;
+        currentTime.current = newTime;
+        setProgress(Math.floor((newTime / (duration * 1000)) * 100));
+        if (newTime >= duration * 1000) {
+          setIsPlaying(false);
+          clearInterval(runningPodcast);
+        }
+      }
+    }, 500);
+  }, [isPlaying]);
+
+  const playOrStop = () => {
+    console.log('playOrStop', name, isPlaying);
+    if (isPlaying) {
+      setIsPlaying(false);
+      clearInterval(runningPodcast);
+    } else {
+      if (currentTime.current >= duration * 1000) {
+        currentTime.current = 0;
+      }
+      setIsPlaying(true);
+    }
+  };
 
   return (
     <Card maxW="sm" borderRadius="8px">
@@ -43,16 +80,20 @@ const Course = ({ name, experts, categories, duration }: PodcastType) => {
             rounded={'full'}
             colorScheme="orange"
             bgColor="rgba(255, 89, 0, 1)"
-            onClick={() => console.log('TODO')}
+            onClick={playOrStop}
             icon={<HeadsetIcon />}
             variant="ghost"
             aria-label="play"
             size="xs"
-            _hover={{ bgColor: 'rgba(255, 89, 0, 0.6)' }}
+            _hover={{ transform: 'scale(1.4)' }}
             className="!absolute bottom-0 left-0 ml-2 mb-2"
           ></IconButton>
           <Duration duration={duration} />
-          <Progress progress={progress} className="absolute bottom-0 left-0" />
+          <Progress
+            progress={progress}
+            className="absolute bottom-0 left-0"
+            playing={isPlaying}
+          />
         </Box>
         <CardBody p="8px 8px 12px">
           <Stack mt="0" gap={0}>
@@ -93,6 +134,7 @@ const Course = ({ name, experts, categories, duration }: PodcastType) => {
               border="0"
               p="0"
               rounded="full"
+              _hover={{ transform: 'scale(1.4)' }}
             ></IconButton>
 
             <IconButton
@@ -105,6 +147,7 @@ const Course = ({ name, experts, categories, duration }: PodcastType) => {
               border="0"
               p="0"
               rounded="full"
+              _hover={{ transform: 'scale(1.4)' }}
             ></IconButton>
           </ButtonGroup>
         </CardFooter>
