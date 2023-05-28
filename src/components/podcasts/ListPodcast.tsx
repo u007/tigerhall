@@ -70,8 +70,9 @@ const ListPodcasts = () => {
         onChange={(e) => {
           setInputSearch(e.target.value);
         }}
-        onSearch={(e) => {
-          setSearch(inputSearch);
+        onSearch={(v) => {
+          console.log('search!', v);
+          setSearch(v);
         }}
       />
       {error && (

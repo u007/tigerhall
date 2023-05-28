@@ -12,26 +12,39 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react';
-import { SyntheticEvent, useState } from 'react';
+import { SyntheticEvent, useRef, useState } from 'react';
 
 type Props = {
   value: string;
   onChange: (value: any) => void;
-  onSearch: (value: any) => void;
+  onSearch: (value: string) => void;
 };
 
 const Search = ({ value, onChange, onSearch }: Props) => {
-  const search = useState(value);
+  const lastSearchTime = useRef(0);
+
+  const onSearchKey = (e: any) => {
+    // console.log('onSearchKey', e.target.value);
+    onChange(e);
+
+    lastSearchTime.current = Date.now();
+    setTimeout(() => {
+      if (Date.now() - lastSearchTime.current < 300) {
+        return;
+      }
+      onSearch(e.target.value);
+    }, 300);
+  };
 
   return (
     <Stack spacing={4}>
       <InputGroup colorScheme="white">
         <Input
           value={value}
-          onChange={onChange}
+          onChange={onSearchKey}
           onKeyPress={(e) => {
             if (e.key === 'Enter') {
-              onSearch(e);
+              onSearch(value);
             }
           }}
           borderColor="#797670"
