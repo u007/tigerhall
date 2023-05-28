@@ -166,6 +166,6 @@ const Course = ({ name, experts, categories, duration, image }: PodcastType) => 
       </Fade>
     </Card>
   );
-};;
+};
 
 export default Course;
