@@ -23,7 +23,16 @@ import Search from './Search';
 // };
 const SkeletonCard = () => {
   return (
-    <Card maxW="sm" borderWidth="1px" borderRadius="md" overflow="hidden" p="6px" mt={4}>
+    <Card
+      maxW="sm"
+      borderWidth="1px"
+      borderRadius="md"
+      overflow="hidden"
+      p="6px"
+      mt={4}
+      w="244px"
+      className="mx-auto"
+    >
       <Skeleton height="200px" width="100%" />
       <Box p="4">
         <SkeletonText mt="4" noOfLines={4} spacing="4" />
@@ -55,7 +64,7 @@ const ListPodcasts = () => {
   }, [loading]);
 
   return (
-    <Box>
+    <section>
       <Search
         value={inputSearch}
         onChange={(e) => {
@@ -71,9 +80,15 @@ const ListPodcasts = () => {
           {error.message}
         </Alert>
       )}
-      {loading && <SkeletonCard />}
+      {loading && (
+        <SimpleGrid minChildWidth="244px" spacing="20px" mt={4} w="100%">
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+        </SimpleGrid>
+      )}
       {!loading && results.length === 0 && (
-        <Alert status="info" m="4px" bgColor="#FFA97A">
+        <Alert status="info" m="10px 0" bgColor="#FFA97A">
           <span>No results found for</span>
           <span className="font-bold ml-1">{search}</span>
         </Alert>
@@ -85,7 +100,7 @@ const ListPodcasts = () => {
           ))}
         </SimpleGrid>
       )}
-    </Box>
+    </section>
   );
 };
 
