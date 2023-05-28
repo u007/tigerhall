@@ -27,13 +27,13 @@ const Course = ({ name, experts, categories, duration }: PodcastType) => {
   const [progress, setProgress] = useState(Math.floor(Math.random() * 100));
   const currentTime = useRef<number>(Math.round((progress * duration) / 100) * 1000); // ms
 
-  let runningPodcast: NodeJS.Timer;
+  const runningPodcast = useRef<NodeJS.Timer | null>(null);
   useEffect(() => {
     if (!isPlaying) {
-      clearInterval(runningPodcast);
+      clearInterval(runningPodcast.current!);
       return;
     }
-    runningPodcast = setInterval(() => {
+    runningPodcast.current = setInterval(() => {
       console.log('playing', name, {
         currentTime: currentTime.current,
         duration: duration * 1000,
@@ -44,7 +44,7 @@ const Course = ({ name, experts, categories, duration }: PodcastType) => {
         setProgress(Math.floor((newTime / (duration * 1000)) * 100));
         if (newTime >= duration * 1000) {
           setIsPlaying(false);
-          clearInterval(runningPodcast);
+          clearInterval(runningPodcast.current!);
         }
       }
     }, 500);
@@ -54,7 +54,7 @@ const Course = ({ name, experts, categories, duration }: PodcastType) => {
     console.log('playOrStop', name, isPlaying);
     if (isPlaying) {
       setIsPlaying(false);
-      clearInterval(runningPodcast);
+      clearInterval(runningPodcast.current!);
     } else {
       if (currentTime.current >= duration * 1000) {
         currentTime.current = 0;
@@ -86,7 +86,9 @@ const Course = ({ name, experts, categories, duration }: PodcastType) => {
             aria-label="play"
             size="xs"
             _hover={{ transform: 'scale(1.4)' }}
-            className="!absolute bottom-0 left-0 ml-2 mb-2"
+            className={`!absolute bottom-0 left-0 ml-2 mb-2 ease-in${
+              isPlaying ? ' animate-pulse	' : ''
+            }`}
           ></IconButton>
           <Duration duration={duration} />
           <Progress
