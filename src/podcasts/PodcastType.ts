@@ -15,4 +15,5 @@ export type PodcastType = {
   };
   experts: PodcastExpert;
   link: string;
+  duration: number; // seconds
 };

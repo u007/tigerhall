@@ -16,6 +16,7 @@ export const podcasts: PodcastType[] = [
       uri: 'https://placehold.co/800@2x.png',
     },
     link: '/courses/1',
+    duration: 20 * 60,
   },
   {
     name: 'test2',
@@ -32,6 +33,7 @@ export const podcasts: PodcastType[] = [
       uri: 'https://placehold.co/800@2x.png',
     },
     link: '/courses/1',
+    duration: 20 * 60,
   },
   {
     name: 'test3',
@@ -48,5 +50,6 @@ export const podcasts: PodcastType[] = [
       uri: 'https://placehold.co/800@2x.png',
     },
     link: '/courses/1',
+    duration: 50,
   },
 ];
