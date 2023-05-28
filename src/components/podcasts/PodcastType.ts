@@ -13,7 +13,7 @@ export type PodcastType = {
   image: {
     uri: string;
   };
-  experts: PodcastExpert;
+  experts: PodcastExpert[];
   link: string;
   duration: number; // seconds
 };

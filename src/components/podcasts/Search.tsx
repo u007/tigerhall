@@ -16,10 +16,11 @@ import { SyntheticEvent, useState } from 'react';
 
 type Props = {
   value: string;
-  onChange: (value: SyntheticEvent) => void;
+  onChange: (value: any) => void;
+  onSearch: (value: any) => void;
 };
 
-const Search = ({ value, onChange }: Props) => {
+const Search = ({ value, onChange, onSearch }: Props) => {
   const search = useState(value);
 
   return (
@@ -28,6 +29,11 @@ const Search = ({ value, onChange }: Props) => {
         <Input
           value={value}
           onChange={onChange}
+          onKeyPress={(e) => {
+            if (e.key === 'Enter') {
+              onSearch(e);
+            }
+          }}
           borderColor="#797670"
           bgColor="#383733"
         />

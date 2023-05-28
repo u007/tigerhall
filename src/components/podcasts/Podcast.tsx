@@ -63,7 +63,7 @@ const Course = ({ name, experts, categories, duration }: PodcastType) => {
             {name}
           </Heading>
           <Text fontSize="xs" mt={2} color="#4D4B46">
-            {experts.firstName} {experts.lastName}
+            {experts.map((expert) => `${expert.firstName} ${expert.lastName}`).join(', ')}
           </Text>
           <Text
             fontSize="xs"
@@ -72,7 +72,7 @@ const Course = ({ name, experts, categories, duration }: PodcastType) => {
             className="!mt-0"
             fontFamily="NeueMontreal-Bold"
           >
-            {experts.company}
+            {/* {experts.company} */}
           </Text>
         </Stack>
       </CardBody>

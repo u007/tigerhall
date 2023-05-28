@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 
-import { podcasts } from '../../datas/courses';
+// import { podcasts } from '../../datas/courses';
 import { queryPodCasts } from '../../queries/postcast';
 import Course from './Podcast';
 import { PodcastType } from './PodcastType';
@@ -34,6 +34,7 @@ const SkeletonCard = () => {
 
 const ListPodcasts = () => {
   // const [results, setResults] = useState<PodcastType[]>(podcasts);
+  const [inputSearch, setInputSearch] = useState('');
   const [search, setSearch] = useState('');
   const { loading, error, data } = useQuery(queryPodCasts(), {
     variables: { search, limit: 20 },
@@ -55,9 +56,13 @@ const ListPodcasts = () => {
   return (
     <Box>
       <Search
-        value={search}
+        value={inputSearch}
         onChange={(e) => {
-          console.log('e', e);
+          setInputSearch(e.target.value);
+        }}
+        onSearch={(e) => {
+          console.log('onsearch', inputSearch);
+          setSearch(inputSearch);
         }}
       />
       {error && (
