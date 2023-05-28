@@ -36,6 +36,7 @@ const Search = ({ value, onChange, onSearch }: Props) => {
           }}
           borderColor="#797670"
           bgColor="#383733"
+          color="white"
         />
         <InputLeftElement>
           <Button colorScheme="white">

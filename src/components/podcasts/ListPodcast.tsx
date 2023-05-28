@@ -6,6 +6,7 @@ import {
   AlertIcon,
   Box,
   Card,
+  Fade,
   Skeleton,
   SkeletonText,
   Stack,
@@ -37,7 +38,7 @@ const ListPodcasts = () => {
   const [inputSearch, setInputSearch] = useState('');
   const [search, setSearch] = useState('');
   const { loading, error, data } = useQuery(queryPodCasts(), {
-    variables: { search, limit: 20 },
+    variables: { keywords: search, limit: 20 },
   });
 
   const results: PodcastType[] =
@@ -53,6 +54,7 @@ const ListPodcasts = () => {
       console.log('results', results, error);
     }
   }, [loading]);
+
   return (
     <Box>
       <Search
@@ -61,17 +63,21 @@ const ListPodcasts = () => {
           setInputSearch(e.target.value);
         }}
         onSearch={(e) => {
-          console.log('onsearch', inputSearch);
           setSearch(inputSearch);
         }}
       />
       {error && (
-        <Alert status="error">
+        <Alert status="error" m="4px">
           <AlertIcon />
           {error.message}
         </Alert>
       )}
       {loading && <SkeletonCard />}
+      {!loading && results.length === 0 && (
+        <Alert status="info" m="4px">
+          No results found for <strong>{search}</strong>
+        </Alert>
+      )}
       {!loading && (
         <Stack spacing={4} align="stretch" mt={4}>
           {results.map((result, index) => (
