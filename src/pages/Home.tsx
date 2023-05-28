@@ -1,7 +1,6 @@
 import { Center } from '@chakra-ui/react';
+import ListPodcasts from 'components/podcasts/ListPodcast';
 import React from 'react';
-
-import ListPodcasts from '../podcasts/ListPodcast';
 
 const Home = () => {
   return (
