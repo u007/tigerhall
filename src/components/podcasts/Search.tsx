@@ -1,8 +1,9 @@
-import { SearchIcon } from '@chakra-ui/icons';
+import { CloseIcon, SearchIcon } from '@chakra-ui/icons';
 import {
   Box,
   Button,
   Heading,
+  IconButton,
   Input,
   InputGroup,
   InputLeftElement,
@@ -56,6 +57,20 @@ const Search = ({ value, onChange, onSearch }: Props) => {
             <SearchIcon />
           </Button>
         </InputLeftElement>
+
+        {value?.length > 0 && (
+          <InputRightElement>
+            <IconButton
+              colorScheme="white"
+              aria-label="clear"
+              icon={<CloseIcon />}
+              onClick={() => {
+                onChange({ target: { value: '' } });
+                onSearch('');
+              }}
+            />
+          </InputRightElement>
+        )}
       </InputGroup>
     </Stack>
   );
