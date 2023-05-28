@@ -34,10 +34,10 @@ const Course = ({ name, experts, categories, duration }: PodcastType) => {
       return;
     }
     runningPodcast.current = setInterval(() => {
-      console.log('playing', name, {
-        currentTime: currentTime.current,
-        duration: duration * 1000,
-      });
+      // console.log('playing', name, {
+      //   currentTime: currentTime.current,
+      //   duration: duration * 1000,
+      // });
       if (isPlaying) {
         const newTime = currentTime.current + 500;
         currentTime.current = newTime;
@@ -64,7 +64,7 @@ const Course = ({ name, experts, categories, duration }: PodcastType) => {
   };
 
   return (
-    <Card maxW="sm" borderRadius="8px">
+    <Card maxW="sm" borderRadius="8px" height="272px" className="mx-auto" width="244px">
       <Fade in>
         <Box
           className="relative"
@@ -97,7 +97,7 @@ const Course = ({ name, experts, categories, duration }: PodcastType) => {
             playing={isPlaying}
           />
         </Box>
-        <CardBody p="8px 8px 12px">
+        <CardBody p="8px 8px 12px" h="110px">
           <Stack mt="0" gap={0}>
             <Text fontSize="xs" color="#797670" textTransform="uppercase">
               {categories
@@ -123,7 +123,7 @@ const Course = ({ name, experts, categories, duration }: PodcastType) => {
             </Text>
           </Stack>
         </CardBody>
-        <CardFooter p="0 0 5px 0">
+        <CardFooter p="0 0 5px 0" bottom={0}>
           <ButtonGroup spacing="0" ml="auto">
             <IconButton
               colorScheme="orange"

@@ -6,9 +6,9 @@ import {
   AlertIcon,
   Box,
   Card,
+  SimpleGrid,
   Skeleton,
   SkeletonText,
-  Stack,
 } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 
@@ -23,7 +23,7 @@ import Search from './Search';
 // };
 const SkeletonCard = () => {
   return (
-    <Card maxW="sm" borderWidth="1px" borderRadius="md" overflow="hidden" p="6px">
+    <Card maxW="sm" borderWidth="1px" borderRadius="md" overflow="hidden" p="6px" mt={4}>
       <Skeleton height="200px" width="100%" />
       <Box p="4">
         <SkeletonText mt="4" noOfLines={4} spacing="4" />
@@ -73,16 +73,17 @@ const ListPodcasts = () => {
       )}
       {loading && <SkeletonCard />}
       {!loading && results.length === 0 && (
-        <Alert status="info" m="4px">
-          No results found for <strong>{search}</strong>
+        <Alert status="info" m="4px" bgColor="#FFA97A">
+          <span>No results found for</span>
+          <span className="font-bold ml-1">{search}</span>
         </Alert>
       )}
       {!loading && (
-        <Stack spacing={4} align="stretch" mt={4}>
+        <SimpleGrid minChildWidth="244px" spacing="20px" mt={4} w="100%">
           {results.map((result, index) => (
             <Course {...result} key={index} />
           ))}
-        </Stack>
+        </SimpleGrid>
       )}
     </Box>
   );
