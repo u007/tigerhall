@@ -10,6 +10,7 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react';
+import Duration from 'components/Duration';
 import BookmarkIcon from 'components/icons/BookmarkIcon';
 import ClockIcon from 'components/icons/ClockIcon';
 import HeadsetIcon from 'components/icons/HeadsetIcon';
@@ -18,7 +19,6 @@ import PodtcastProgressIndicator from 'components/PodcastProgressIndicator';
 import Progress from 'components/Progress';
 import { useState } from 'react';
 
-import Duration from '../components/Duration';
 import { PodcastType } from './PodcastType';
 
 const Course = ({ name, experts, categories, duration }: PodcastType) => {
@@ -55,7 +55,9 @@ const Course = ({ name, experts, categories, duration }: PodcastType) => {
       <CardBody p="8px 8px 12px">
         <Stack mt="0" gap={0}>
           <Text fontSize="xs" color="#797670" textTransform="uppercase">
-            {categories.name}
+            {categories
+              .map((category) => (category.name || '').substring('category '.length))
+              .join(', ')}
           </Text>
           <Heading fontSize="md" className="!mt-0 capitalize">
             {name}

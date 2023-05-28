@@ -9,7 +9,7 @@ export type PodcastType = {
   name: string;
   categories: {
     name: string;
-  };
+  }[];
   image: {
     uri: string;
   };

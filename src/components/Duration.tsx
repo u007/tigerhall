@@ -7,7 +7,7 @@ import ClockIcon from './icons/ClockIcon';
  * @param duration in seconds
  */
 const Duration = ({ duration }: { duration: number }) => {
-  const durationInMinutes = duration / 60;
+  const durationInMinutes = Math.floor(duration / 60);
 
   return (
     <Flex
