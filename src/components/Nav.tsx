@@ -6,12 +6,10 @@ import {
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   Flex,
   IconButton,
-  Input,
   Link,
   Text,
 } from '@chakra-ui/react';
@@ -50,7 +48,7 @@ const Nav = () => {
         </Button>
       </Box>
 
-      <div className="float-right md:hidden">
+      <Box float="right" className="md:hidden">
         <IconButton
           ref={btnRef}
           colorScheme="teal"
@@ -59,7 +57,7 @@ const Nav = () => {
           variant="ghost"
           aria-label="Toggle Menu"
         ></IconButton>
-      </div>
+      </Box>
       <Drawer isOpen={isOpen} placement="left" onClose={onClose} finalFocusRef={btnRef}>
         <DrawerOverlay />
         <DrawerContent>
@@ -67,10 +65,10 @@ const Nav = () => {
           <DrawerHeader>Menu</DrawerHeader>
 
           <DrawerBody>
-            <div className="flex flex-col gap-2 text-left">
+            <Flex direction="column" gap={2} textAlign="left">
               <Link href="/about">About</Link>
               <Link href="/contact">Contact</Link>
-            </div>
+            </Flex>
           </DrawerBody>
         </DrawerContent>
       </Drawer>

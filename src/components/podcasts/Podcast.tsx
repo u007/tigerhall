@@ -13,10 +13,9 @@ import {
 } from '@chakra-ui/react';
 import Duration from 'components/Duration';
 import BookmarkIcon from 'components/icons/BookmarkIcon';
-import ClockIcon from 'components/icons/ClockIcon';
 import HeadsetIcon from 'components/icons/HeadsetIcon';
 import ShareIcon from 'components/icons/ShareIcon';
-import PodtcastProgressIndicator from 'components/PodcastProgressIndicator';
+import PodtcastProgressIndicator from 'components/podcasts/PodcastProgressIndicator';
 import Progress from 'components/Progress';
 import { useEffect, useRef, useState } from 'react';
 
@@ -24,7 +23,7 @@ import { PodcastType } from './PodcastType';
 
 const Course = ({ name, experts, categories, duration, image }: PodcastType) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(Math.floor(Math.random() * 100));
+  const [progress, setProgress] = useState(0);
   const currentTime = useRef<number>(Math.round((progress * duration) / 100) * 1000); // ms
 
   const runningPodcast = useRef<NodeJS.Timer | null>(null);
@@ -82,10 +81,8 @@ const Course = ({ name, experts, categories, duration, image }: PodcastType) => 
             w="full"
             h="120px"
             bgImage={imgUrl.href}
-            // bgImage="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
             backgroundSize="cover"
           >
-            {/* <CircularProgress size="12px" value={progress} ml={2} thickness="80%" rounded="full" /> */}
             <PodtcastProgressIndicator progress={progress} />
             <IconButton
               rounded={'full'}

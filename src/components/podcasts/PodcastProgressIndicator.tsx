@@ -11,15 +11,17 @@ const PodtcastProgressIndicator = ({ progress }: { progress: number }) => {
       display="inline-block"
       p="0 8px 0 0"
       verticalAlign="middle"
-      className="relative"
+      position="relative"
     >
-      <div
-        style={{
-          width: '12px',
-          height: '12px',
-          border: '1px solid #FFA97A',
-        }}
-        className="inline-block border-1 absolute top-[8px] left-[8px] rounded-full"
+      <Box
+        w="12px"
+        height="12px"
+        border="1px solid #FFA97A"
+        display="inline-block"
+        position="absolute"
+        top="8px"
+        left="8px"
+        borderRadius="full"
       >
         <CircularProgressbar
           value={progress}
@@ -30,13 +32,13 @@ const PodtcastProgressIndicator = ({ progress }: { progress: number }) => {
             pathColor: '#FFA97A',
           })}
         />
-      </div>
+      </Box>
       <Text
         lineHeight="14px"
         fontSize="xs"
         display="inline-block"
         fontFamily="NeueMontreal-Bold"
-        className="!ml-[24px]"
+        marginLeft="24px !important"
       >
         {progress}% Completed
       </Text>
