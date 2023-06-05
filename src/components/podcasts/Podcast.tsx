@@ -11,13 +11,14 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react';
-import Duration from 'components/Duration';
 import BookmarkIcon from 'components/icons/BookmarkIcon';
 import HeadsetIcon from 'components/icons/HeadsetIcon';
 import ShareIcon from 'components/icons/ShareIcon';
 import PodtcastProgressIndicator from 'components/podcasts/PodcastProgressIndicator';
-import Progress from 'components/Progress';
 import { useEffect, useRef, useState } from 'react';
+
+import Duration from '@/components/podcasts/Duration';
+import Progress from '@/components/podcasts/Progress';
 
 import { PodcastType } from './PodcastType';
 
