@@ -5,6 +5,7 @@ export const queryPodCasts = () => gql`
     contentCards(filter: { limit: $limit, keywords: $keywords, types: [PODCAST] }) {
       edges {
         ... on Podcast {
+          id
           name
           image {
             ...Image

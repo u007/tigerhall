@@ -57,12 +57,6 @@ const ListPodcasts = () => {
       };
     }) || [];
 
-  useEffect(() => {
-    if (!loading) {
-      console.log('results', results, error);
-    }
-  }, [loading]);
-
   return (
     <section>
       <Search
@@ -71,7 +65,6 @@ const ListPodcasts = () => {
           setInputSearch(e.target.value);
         }}
         onSearch={(v) => {
-          console.log('search!', v);
           setSearch(v);
         }}
       />
@@ -97,7 +90,7 @@ const ListPodcasts = () => {
       {!loading && (
         <SimpleGrid minChildWidth="244px" spacing="20px" mt={4} w="100%">
           {results.map((result, index) => (
-            <Course {...result} key={index} />
+            <Course {...result} key={result.id} />
           ))}
         </SimpleGrid>
       )}

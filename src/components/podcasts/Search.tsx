@@ -25,7 +25,6 @@ const Search = ({ value, onChange, onSearch }: Props) => {
   const lastSearchTime = useRef(0);
 
   const onSearchKey = (e: any) => {
-    // console.log('onSearchKey', e.target.value);
     onChange(e);
 
     lastSearchTime.current = Date.now();

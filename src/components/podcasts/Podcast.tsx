@@ -33,10 +33,6 @@ const Course = ({ name, experts, categories, duration, image }: PodcastType) => 
       return;
     }
     runningPodcast.current = setInterval(() => {
-      // console.log('playing', name, {
-      //   currentTime: currentTime.current,
-      //   duration: duration * 1000,
-      // });
       if (isPlaying) {
         const newTime = currentTime.current + 500;
         currentTime.current = newTime;
@@ -50,7 +46,6 @@ const Course = ({ name, experts, categories, duration, image }: PodcastType) => 
   }, [isPlaying]);
 
   const playOrStop = () => {
-    console.log('playOrStop', name, isPlaying);
     if (isPlaying) {
       setIsPlaying(false);
       clearInterval(runningPodcast.current!);
@@ -69,7 +64,6 @@ const Course = ({ name, experts, categories, duration, image }: PodcastType) => 
   if (image?.uri) {
     imgUrl.pathname = '/resize/250x' + imgUrl.pathname;
   }
-  // console.log(imgUrl.href);
 
   return (
     <Card maxW="sm" borderRadius="8px" height="272px" className="mx-auto" width="244px">

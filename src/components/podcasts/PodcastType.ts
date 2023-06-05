@@ -6,6 +6,7 @@ export type PodcastExpert = {
 };
 
 export type PodcastType = {
+  id: string;
   name: string;
   categories: {
     name: string;
