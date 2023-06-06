@@ -80,8 +80,7 @@ const Course = ({ name, experts, categories, duration, image }: PodcastType) => 
             borderRadius="8px 8px 0 0"
             w="full"
             h="120px"
-            bgImage={imgUrl.href}
-            backgroundSize="cover"
+            background={`url(${imgUrl.href}) center/cover no-repeat`}
           >
             <PodtcastProgressIndicator progress={progress} />
             <IconButton
