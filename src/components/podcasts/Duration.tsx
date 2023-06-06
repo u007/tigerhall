@@ -3,7 +3,6 @@ import { Flex, Text } from '@chakra-ui/react';
 import ClockIcon from '@/components/icons/ClockIcon';
 
 /**
- *
  * @param duration in seconds
  */
 const Duration = ({ duration }: { duration: number }) => {

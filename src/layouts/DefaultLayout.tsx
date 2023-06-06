@@ -14,7 +14,6 @@ const DefaultLayout = () => {
         <Outlet />
       </main>
 
-      {/* Footer */}
       <footer>
         <p className="text-center">
           &copy; {new Date().getFullYear()} Tigerhall. All rights reserved.

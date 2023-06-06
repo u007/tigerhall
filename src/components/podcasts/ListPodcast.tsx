@@ -12,7 +12,6 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 
-// import { podcasts } from '../../datas/courses';
 import { queryPodCasts } from '@/queries/postcast';
 import { style } from '@/styles/style';
 
@@ -41,7 +40,6 @@ const SkeletonCard = () => {
 };
 
 const ListPodcasts = () => {
-  // const [results, setResults] = useState<PodcastType[]>(podcasts);
   const [inputSearch, setInputSearch] = useState('');
   const [search, setSearch] = useState('');
   const { loading, error, data } = useQuery(queryPodCasts(), {

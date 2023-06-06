@@ -19,7 +19,6 @@ const Progress = ({ playing, progress, className }: Props) => {
       <Box
         h="100%"
         transition="all 1s ease-in-out"
-        // animate-pulse
         className={`progress__bar ${playing ? ' animate-pulse' : ''}`}
         style={{ width: `${progress}%`, backgroundColor: style.iconColor }}
       ></Box>
