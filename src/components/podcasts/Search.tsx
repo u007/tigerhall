@@ -1,19 +1,16 @@
 import { CloseIcon, SearchIcon } from '@chakra-ui/icons';
 import {
-  Box,
   Button,
-  Heading,
   IconButton,
   Input,
   InputGroup,
   InputLeftElement,
   InputRightElement,
-  Link,
   Stack,
-  Text,
-  VStack,
 } from '@chakra-ui/react';
-import { SyntheticEvent, useRef, useState } from 'react';
+import { useRef } from 'react';
+
+import { gray700, gray900 } from '@/styles/style';
 
 type Props = {
   value: string;
@@ -47,8 +44,8 @@ const Search = ({ value, onChange, onSearch }: Props) => {
               onSearch(value);
             }
           }}
-          borderColor="#797670"
-          bgColor="#383733"
+          borderColor={gray700}
+          bgColor={gray900}
           color="white"
         />
         <InputLeftElement>

@@ -1,5 +1,7 @@
 import { Box } from '@chakra-ui/react';
 
+import { gray200, style } from '@/styles/style';
+
 type Props = {
   progress: number;
   playing?: boolean;
@@ -11,7 +13,7 @@ const Progress = ({ playing, progress, className }: Props) => {
     <Box
       height="2px"
       w="100%"
-      bgColor="rgba(255, 89, 0, 0.3)"
+      bgColor={gray200}
       className={`progress${className ? ` ${className}` : ''}`}
     >
       <Box
@@ -19,7 +21,7 @@ const Progress = ({ playing, progress, className }: Props) => {
         transition="all 1s ease-in-out"
         // animate-pulse
         className={`progress__bar ${playing ? ' animate-pulse' : ''}`}
-        style={{ width: `${progress}%`, backgroundColor: '#FF5900' }}
+        style={{ width: `${progress}%`, backgroundColor: style.iconColor }}
       ></Box>
     </Box>
   );

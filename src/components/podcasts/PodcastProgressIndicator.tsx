@@ -1,6 +1,9 @@
 import { Box, Stack } from '@chakra-ui/react';
 import { Text } from '@chakra-ui/react';
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
+
+import { orange300 } from '@/styles/style';
+
 const PodtcastProgressIndicator = ({ progress }: { progress: number }) => {
   return (
     <Stack
@@ -16,7 +19,7 @@ const PodtcastProgressIndicator = ({ progress }: { progress: number }) => {
       <Box
         w="12px"
         height="12px"
-        border="1px solid #FFA97A"
+        border={`1px solid ${orange300}`}
         display="inline-block"
         position="absolute"
         top="8px"
@@ -29,7 +32,7 @@ const PodtcastProgressIndicator = ({ progress }: { progress: number }) => {
           background={true}
           styles={buildStyles({
             strokeLinecap: 'butt',
-            pathColor: '#FFA97A',
+            pathColor: orange300,
           })}
         />
       </Box>

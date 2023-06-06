@@ -12,6 +12,8 @@ import {
 } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 
+import { style } from '@/styles/style';
+
 // import { podcasts } from '../../datas/courses';
 import { queryPodCasts } from '../../queries/postcast';
 import Course from './Podcast';
@@ -82,7 +84,7 @@ const ListPodcasts = () => {
         </SimpleGrid>
       )}
       {!loading && results.length === 0 && (
-        <Alert status="info" m="10px 0" bgColor="#FFA97A">
+        <Alert status="info" m="10px 0" bgColor={style.alertBgColor}>
           <span>No results found for</span>
           <span className="font-bold ml-1">{search}</span>
         </Alert>

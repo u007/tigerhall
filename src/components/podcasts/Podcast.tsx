@@ -19,6 +19,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import Duration from '@/components/podcasts/Duration';
 import Progress from '@/components/podcasts/Progress';
+import { style } from '@/styles/style';
 
 import { PodcastType } from './PodcastType';
 
@@ -81,8 +82,8 @@ const Course = ({ name, experts, categories, duration, image }: PodcastType) => 
             <PodtcastProgressIndicator progress={progress} />
             <IconButton
               rounded={'full'}
-              colorScheme="orange"
-              bgColor="rgba(255, 89, 0, 1)"
+              colorScheme={style.baseColor}
+              bgColor={style.buttonBgRGBA}
               onClick={playOrStop}
               icon={<HeadsetIcon />}
               variant="ghost"
@@ -102,7 +103,7 @@ const Course = ({ name, experts, categories, duration, image }: PodcastType) => 
           </Box>
           <CardBody p="8px 8px 12px" h="110px">
             <Stack mt="0" gap={0}>
-              <Text fontSize="xs" color="#797670" textTransform="uppercase">
+              <Text fontSize="xs" color={style.tagColor} textTransform="uppercase">
                 {categories
                   .map((category) => (category.name || '').substring('category '.length))
                   .join(', ')}
@@ -110,12 +111,12 @@ const Course = ({ name, experts, categories, duration, image }: PodcastType) => 
               <Heading fontSize="md" className="!mt-0 capitalize">
                 {name}
               </Heading>
-              <Text fontSize="xs" mt={2} color="#4D4B46">
+              <Text fontSize="xs" mt={2} color={style.expertColor}>
                 {expert.firstName} {expert.lastName}
               </Text>
               <Text
                 fontSize="xs"
-                color="#797670"
+                color={style.expertCompanyColor}
                 fontWeight="bold"
                 className="!mt-0 capitalize"
                 fontFamily="NeueMontreal-Bold"
