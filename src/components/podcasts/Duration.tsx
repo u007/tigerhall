@@ -1,6 +1,6 @@
 import { Flex, Text } from '@chakra-ui/react';
 
-import ClockIcon from '../icons/ClockIcon';
+import ClockIcon from '@/components/icons/ClockIcon';
 
 /**
  *

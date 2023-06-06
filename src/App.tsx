@@ -1,8 +1,7 @@
 import './styles/App.scss';
 
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import { ChakraProvider, DarkMode } from '@chakra-ui/react';
-import React, { lazy } from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 import { Route, Routes } from 'react-router-dom';
 
 import DefaultLayout from './layouts/DefaultLayout';

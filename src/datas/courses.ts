@@ -2,6 +2,7 @@ import { PodcastType } from 'components/podcasts/PodcastType';
 
 export const podcasts: PodcastType[] = [
   {
+    id: '1',
     name: 'test title',
     categories: [
       {
@@ -23,6 +24,7 @@ export const podcasts: PodcastType[] = [
     duration: 20 * 60,
   },
   {
+    id: '2',
     name: 'test2',
     categories: [
       {
@@ -44,6 +46,7 @@ export const podcasts: PodcastType[] = [
     duration: 20 * 60,
   },
   {
+    id: '3',
     name: 'test3',
     categories: [
       {

@@ -10,19 +10,16 @@ import {
   Skeleton,
   SkeletonText,
 } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react';
-
-import { style } from '@/styles/style';
+import { useState } from 'react';
 
 // import { podcasts } from '../../datas/courses';
-import { queryPodCasts } from '../../queries/postcast';
+import { queryPodCasts } from '@/queries/postcast';
+import { style } from '@/styles/style';
+
 import Course from './Podcast';
 import { PodcastType } from './PodcastType';
 import Search from './Search';
 
-// type Props = {
-//   results: CourseType[];
-// };
 const SkeletonCard = () => {
   return (
     <Card

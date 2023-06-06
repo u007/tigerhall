@@ -1,7 +1,7 @@
-import { Box, Link } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import { Outlet } from 'react-router-dom';
 
-import Nav from '../components/Nav';
+import Nav from '@/components/Nav';
 
 const DefaultLayout = () => {
   return (

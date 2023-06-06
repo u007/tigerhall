@@ -5,7 +5,6 @@ import {
   CardBody,
   CardFooter,
   Fade,
-  Flex,
   Heading,
   IconButton,
   Stack,
@@ -29,9 +28,14 @@ const Course = ({ name, experts, categories, duration, image }: PodcastType) => 
   const currentTime = useRef<number>(Math.round((progress * duration) / 100) * 1000); // ms
 
   const runningPodcast = useRef<NodeJS.Timer | null>(null);
+  const stopPodCastInterval = () => {
+    if (runningPodcast.current) {
+      clearInterval(runningPodcast.current);
+    }
+  };
   useEffect(() => {
     if (!isPlaying) {
-      clearInterval(runningPodcast.current!);
+      stopPodCastInterval();
       return;
     }
     runningPodcast.current = setInterval(() => {
@@ -41,7 +45,7 @@ const Course = ({ name, experts, categories, duration, image }: PodcastType) => 
         setProgress(Math.floor((newTime / (duration * 1000)) * 100));
         if (newTime >= duration * 1000) {
           setIsPlaying(false);
-          clearInterval(runningPodcast.current!);
+          stopPodCastInterval();
         }
       }
     }, 500);
@@ -50,7 +54,7 @@ const Course = ({ name, experts, categories, duration, image }: PodcastType) => 
   const playOrStop = () => {
     if (isPlaying) {
       setIsPlaying(false);
-      clearInterval(runningPodcast.current!);
+      stopPodCastInterval();
     } else {
       if (currentTime.current >= duration * 1000) {
         currentTime.current = 0;
