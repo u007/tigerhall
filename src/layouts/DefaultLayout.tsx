@@ -1,11 +1,11 @@
-import { Link } from '@chakra-ui/react';
+import { Box, Link } from '@chakra-ui/react';
 import { Outlet } from 'react-router-dom';
 
 import Nav from '../components/Nav';
 
 const DefaultLayout = () => {
   return (
-    <div>
+    <Box>
       <header>
         <Nav />
       </header>
@@ -20,7 +20,7 @@ const DefaultLayout = () => {
           &copy; {new Date().getFullYear()} Tigerhall. All rights reserved.
         </p>
       </footer>
-    </div>
+    </Box>
   );
 };
 
